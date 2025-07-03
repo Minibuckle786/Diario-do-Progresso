@@ -1,0 +1,42 @@
+Sim, é possível ter um único campo (input) para validação de e-mail ou celular no cadastro de um cliente, alternando a validação com base no formato do texto inserido pelo usuário. Essa abordagem permite otimizar o formulário e reduzir o número de campos visíveis, oferecendo uma experiência mais amigável.
+Para implementar essa funcionalidade, você pode usar JavaScript para verificar o formato do texto e, com base nisso, aplicar a validação correspondente. Uma abordagem comum é usar expressões regulares para identificar se o texto se parece mais com um e-mail ou um número de celular. Se o formato corresponder a um e-mail, o campo será validado como e-mail. Caso contrário, se o formato corresponder a um número de celular, será validado como celular. 
+Aqui está um exemplo de como você pode implementar essa lógica com JavaScript:
+JavaScript
+
+function validarContato() {
+  const inputContato = document.getElementById('contato');
+  const contato = inputContato.value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const celularRegex = /^\d{10,11}$/; // Ajuste a regex conforme o formato do seu celular
+
+  if (emailRegex.test(contato)) {
+    // Validação de e-mail
+    if (!inputContato.validity.valid) {
+      inputContato.setCustomValidity('Por favor, insira um endereço de e-mail válido.');
+    } else {
+      inputContato.setCustomValidity('');
+    }
+  } else if (celularRegex.test(contato)) {
+    // Validação de celular
+    if (!inputContato.validity.valid) {
+      inputContato.setCustomValidity('Por favor, insira um número de celular válido.');
+    } else {
+      inputContato.setCustomValidity('');
+    }
+  } else {
+    // Mensagem de erro para formato inválido
+    inputContato.setCustomValidity('Por favor, insira um e-mail ou celular válido.');
+  }
+}
+
+// Adiciona um ouvinte de evento para a validação sempre que o usuário digita
+document.getElementById('contato').addEventListener('input', validarContato);
+Neste exemplo: 
+validarContato(): Função que realiza a validação.
+inputContato: O campo de entrada (input) onde o usuário digita o contato.
+emailRegex: Expressão regular para validação de e-mail.
+celularRegex: Expressão regular para validação de número de celular.
+test(): Método que verifica se a string corresponde à expressão regular.
+setCustomValidity(): Define uma mensagem de erro personalizada para o campo.
+addEventListener('input', validarContato): Executa a validação a cada vez que o usuário digita no campo.
+Lembre-se que você pode adaptar as expressões regulares para corresponder aos formatos de e-mail e celular do seu país ou região. Além disso, você pode adicionar validação do lado do servidor para garantir a segurança e integridade dos dados. 

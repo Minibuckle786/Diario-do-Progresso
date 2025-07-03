@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+    <!--https://www.figma.com/design/8rKzI4KBD0eeN80PHuJ5oi/Tela-de-Login-e-Cadastro--Community-?node-id=0-1&p=f&t=lPkGz17pZk9N7K0L-0-->
+    <div class="recepcao">
+        <div class="recepcao-entrar">
+            <h1>BEM-VINDO DE VOLTA!</h1> <BR>
+            <button>Fazer login com o Google</button><br><BR>
+            <button>Fazer login com o Facebook</button><br><BR>
+            <button>Fazer login com o Twitter</button> <br><br>
+
+            <div>
+                <hr>OU
+                <hr>
+            </div><br><br>
+
+            <button>E-mail ou nome de usuário</button><br><BR>
+            <button>Senha</button><br>
+
+            <span>Esqueceu sua senha?</span>
+            <span>Clique <a href="http://">aqui</a></span>
+        </div>
+        <div class="recepcao-cadastro">
+            <h1>CADASTRA-SE AQUI</h1>
+            <form action="">
+                <label form="nome">Nome:</label> <br>
+                <input type="text" id="nome" name="nome" placeholder="Nome completo" required><br>
+
+                <label form="celular-email">Celular ou E-mail:</label><br>
+                <input type="text" id="celular-email" name="celular-email" placeholder="Celular ou e-mail" required><br>
+
+                <label form="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+                <span>Data de nascimento</span>
+
+                <label for="diaNascimento">Dia:</label>
+                <input type="number" id="diaNascimento" name="diaNascimento" min="1" max="31" required>
+
+                <label for="mesNascimento">Mês:</label>
+                <input type="number" id="mesNascimento" name="mesNascimento" min="1" max="12" required>
+
+                <label for="anoNascimento">Ano:</label>
+                <input type="number" id="anoNascimento" name="anoNascimento" min="1900" max="2025" required>
+
+                <span>Gênero</span>
+
+                <input type="radio" name="genero" value="F" required>
+                <span>F</span>
+
+                <input type="radio" name="genero" value="M" required>
+                <span>M</span>
+
+                <input type="radio" name="genero" value="Outro" required>
+                <span>Outro</span>
+
+                <p>As pessoas que usa nosso serviço podem ter carregado suas informações de contato no medium. <a
+                        href="">Saiba mais</a></p>
+
+                <p>Ao clicar em Cadastre-se, você concorda com nossos Termos, Politicas de Privacidade e Politica de
+                    Cookies. Você poderá receber notificações por SMS e cancelar isso quando quiser</p>
+
+                <button>CADASTRA_SE</button>
+            </form><br>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
