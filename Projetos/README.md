@@ -16,28 +16,9 @@ Este repositório foi criado para:
 
 ---
 
-## 🗂 Estrutura
-
-diario-do-progresso/
-│
-├── tarefas/
-│ ├── 2025-06-30-tarefa-dia.md
-│ ├── 2025-07-01-tarefa-dia.md
-│ └── ...
-│
-├── estudos/
-│ ├── html-css/
-│ ├── logica-programacao/
-│ └── ...
-│
-└── README.md
-
-
----
-
 ## 📅 Compromisso Pessoal
 
-- Registrar diariamente minhas tarefas ou aprendizados.
+- Registrar semanalmente minhas tarefas ou aprendizados.
 - Aprender um pouco mais a cada dia, mesmo que pareça pequeno.
 - Ser honesto comigo mesmo sobre erros, acertos e descobertas.
 
