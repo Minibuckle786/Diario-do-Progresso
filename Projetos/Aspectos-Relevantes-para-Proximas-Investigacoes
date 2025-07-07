@@ -1,0 +1,21 @@
+-------------------------------------------------------------------------
+
+ASIDE
+
+Use <aside> quando:
+    Conteúdo adicional ao artigo principal:
+
+    Exemplo: caixas de curiosidades, citações extras, glossários, gráficos explicativos.
+
+    Barra lateral (sidebar) com menus, links, categorias, postagens relacionadas.
+
+    Informações sobre o autor, créditos, ou uma pequena bio.
+
+    Anúncios ou promoções que estejam relacionadas ao conteúdo da página.
+
+    🚫 Evite <aside> quando:
+        O conteúdo não tiver relação alguma com o conteúdo principal (aí pode ser um <div> comum).
+
+            Você estiver apenas organizando layout (não tem sentido semântico aí).
+
+            -------------------------------------------------------------------------

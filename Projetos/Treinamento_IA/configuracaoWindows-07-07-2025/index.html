@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Painel de Configurações</title>
+</head>
+
+<body>
+    <aside>
+        <h2>emerson</h2>
+        <p>emerson@avipet.rede</p>
+        <nav>
+            <ul id="menu">
+                <li data-section="inicio">Início</li>
+                <li data-section="sistema">Sistema</li>
+                <li data-section="bluetooth">Bluetooth e dispositivos</li>
+                <li data-section="rede">Rede e Internet</li>
+                <li data-section="personalizacao">Personalização</li>
+                <li data-section="apps">Aplicativos</li>
+                <li data-section="contas">Contas</li>
+                <li data-section="hora">Hora e idioma</li>
+                <li data-section="jogos">Jogos</li>
+                <li data-section="acessibilidade">Acessibilidade</li>
+                <li data-section="privacidade">Privacidade</li>
+                <li data-section="update">Windows Update</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1 id="titulo">TI</h1>
+            <p>Inspiron 15 3520 - <a href="#">Renomear</a></p>
+        </header>
+
+        <section class="grid">
+            <article>
+                <h2>Configurações Recomendadas</h2>
+                <ul>
+                    <li>Aplicativos padrão</li>
+                    <li>Temas de contraste</li>
+                    <li>Barra de Tarefas</li>
+                </ul>
+            </article>
+
+            <article>
+                <h2>Dispositivos Bluetooth</h2>
+                <p>QCY-T16 (conectado)</p>
+                <p>QCY-T16 (emparelhado)</p>
+                <button onclick="alert('Abrindo assistente para adicionar dispositivo...')">Adicionar
+                    dispositivo</button>
+            </article>
+        </section>
+
+        <section>
+            <h2>Personalizar seu dispositivo</h2>
+            <div class="grid">
+                <article>
+                    <p>Tema 1</p>
+                </article>
+                <article>
+                    <p>Tema 2</p>
+                </article>
+                <article>
+                    <p>Tema 3</p>
+                </article>
+                <article>
+                    <p>Tema 4</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const menu = document.getElementById('menu');
+        const titulo = document.getElementById('titulo');
+
+        menu.addEventListener('click', (e) => {
+            if (e.target.tagName === 'LI') {
+                const section = e.target.getAttribute('data-section');
+                titulo.textContent = section.charAt(0).toUpperCase() + section.slice(1);
+                alert(`Você clicou em: ${section}`);
+            }
+        });
+    </script>
+</body>
+
+</html>
