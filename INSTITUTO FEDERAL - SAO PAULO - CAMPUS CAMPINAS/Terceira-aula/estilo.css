@@ -1,0 +1,13 @@
+h1{
+	color: darkblue;
+}
+p{
+	color: gray;
+}
+.destaque{
+	background-color: yellow;
+	color: red;
+}
+#secao-especial{
+	background-color: lightgreen;
+}

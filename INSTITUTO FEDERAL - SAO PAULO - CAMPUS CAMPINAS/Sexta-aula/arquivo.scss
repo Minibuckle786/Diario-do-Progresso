@@ -1,0 +1,13 @@
+$cor_1: #a2b9bc;
+$cor_2: #b2ad7f;
+$cor_3: #878f99;
+/* uso das variáveis */
+.main-header {
+ background-color: $cor_1;
+}
+.menu-left {
+ background-color: $cor_2;
+}
+.menu-right {
+ background-color: $cor_3;
+}

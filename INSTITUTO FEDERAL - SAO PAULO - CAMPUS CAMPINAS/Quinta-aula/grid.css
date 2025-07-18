@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+.grid-container {
+    display: grid; /* Transforma o div em um container grid */
+    grid-template-columns: 100px 100px 100px; /* Três colunas de tamanho igual */
+    grid-template-rows: 100px 100px 100px 100px; ; /* 4 linhas de 100px de altura */
+    gap: 15px; /* Espaço de 15px entre as células */
+    background-color: tomato;
+    padding: 15px;
+    border: 2px solid #ccc;
+    height: 800px;
+    align-content: center;
+	justify-content: space-evenly;
+}
+
+.grid-item {
+    background-color: #aed6f1;
+    border: 1px solid #3498db;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    display: flex; /* Usando flexbox dentro do item para centralizar conteúdo */
+    justify-content: center;
+    align-items: center;
+}

@@ -1,6 +1,6 @@
 # 📘 Diário do Progresso
 
-Um repositório pessoal para acompanhar minha jornada de aprendizado e evolução diária.  
+Um repositório pessoal para acompanhar minha jornada de aprendizado e evolução.  
 Cada tarefa aqui representa um passo a mais na construção do meu conhecimento e habilidades.
 
 ---
@@ -18,7 +18,7 @@ Este repositório foi criado para:
 
 ## 📅 Compromisso Pessoal
 
-- Registrar semanalmente minhas tarefas ou aprendizados.
+- Registrar minhas tarefas ou aprendizados.
 - Aprender um pouco mais a cada dia, mesmo que pareça pequeno.
 - Ser honesto comigo mesmo sobre erros, acertos e descobertas.
 

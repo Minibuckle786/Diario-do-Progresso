@@ -1,0 +1,14 @@
+
+table,
+th,
+tr,
+td{
+	border: 1px solid red;
+	text-align: center;
+}
+table{
+	width: 400px
+}
+th{
+	background-color: #015C91;
+}

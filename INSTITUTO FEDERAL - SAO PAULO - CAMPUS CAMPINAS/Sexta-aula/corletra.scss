@@ -1,0 +1,8 @@
+$corFundo: red;
+h1 {
+ $corFundo: green;
+ color: $corFundo;
+}
+p {
+ color: $corFundo;
+}

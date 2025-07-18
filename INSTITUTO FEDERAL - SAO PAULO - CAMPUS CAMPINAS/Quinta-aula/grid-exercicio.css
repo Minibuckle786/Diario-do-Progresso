@@ -1,0 +1,19 @@
+.dashboard-grid{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    gap: 20px;
+    width: 90%;
+    margin: 50px auto;
+    background-color: #fbf2e5;
+    border: 3px dashed blue;
+}
+.painel{
+	background-color: lightsteelblue;
+    border: 2px solid black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
