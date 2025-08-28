@@ -1,4 +1,6 @@
 @use 'reset' as *;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
 
 .layoutHeader {
     display: flex;
@@ -39,4 +41,35 @@
 
 .botaoLogin {
     background-color: RGB(246, 45, 20);
+}
+
+// Main
+.fundo {
+    position: relative;
+}
+
+.fundo .fundoBanner {
+    width: 100vw;
+    height: 80vh;
+}
+
+.fundoBannerLayout {
+    position: absolute;
+    top: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+}
+
+.fundoBannerLayout1 {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+}
+
+.fundoBannerLayout2 img {
+    width: 400px;
+    height: 400px;
 }
