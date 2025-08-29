@@ -1,75 +1,13 @@
 @use 'reset' as *;
+@use 'header' as *;
+@use 'mainFundoBanner' as *;
+@use 'mainTitulo' as *;
+@use 'mainCarrossel' as *;
+@use 'footer' as *;
+
+
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 
 
-.layoutHeader {
-    display: flex;
-    height: 12rem;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-
-.logo img {
-    height: 9rem;
-}
-
-.headerInput {
-    max-width: 50rem;
-    min-width: 25rem;
-    width: 100%;
-    display: inline-block;
-    padding: 0.8rem 1.2rem;
-    font-size: 1.6rem;
-    border-radius: 0.6rem;
-    border: 1px solid #000;
-    box-sizing: border-box;
-}
-
-.layoutLoginOuCadastrar {
-    display: flex;
-}
-
-.layoutLoginOuCadastrar button {
-    margin-left: .5rem;
-}
-
-.botaoCadastrar {
-    background-color: RGB(250, 214, 29);
-}
-
-.botaoLogin {
-    background-color: RGB(246, 45, 20);
-}
 
 // Main
-.fundo {
-    position: relative;
-}
-
-.fundo .fundoBanner {
-    width: 100vw;
-    height: 80vh;
-}
-
-.fundoBannerLayout {
-    position: absolute;
-    top: 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 80vh;
-}
-
-.fundoBannerLayout1 {
-    font-family: "Fredoka", sans-serif;
-    font-weight: 700;
-    font-size: 4rem;
-}
-
-.fundoBannerLayout2 img {
-    width: 400px;
-    height: 400px;
-}
