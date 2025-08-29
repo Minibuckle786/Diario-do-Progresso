@@ -52,10 +52,12 @@ body {
 
 .botaoCadastrar {
   background-color: RGB(250, 214, 29);
+  cursor: pointer;
 }
 
 .botaoLogin {
   background-color: RGB(246, 45, 20);
+  cursor: pointer;
 }
 
 .fundo {
@@ -187,4 +189,10 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: 1.8rem;
+}
+
+main {
+  background-image: url("../../imagens/cadastre-se/Fundo.png");
+  height: 100vh;
+  width: 100vh;
 }
