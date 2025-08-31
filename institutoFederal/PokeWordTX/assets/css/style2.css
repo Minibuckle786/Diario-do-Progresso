@@ -1,81 +1,25 @@
 body {
   margin: 0;
-  font-family: "Fredoka One", sans-serif;
-  background: linear-gradient(to top, #aee1ff, #ffffff);
+  padding: 0;
+}
+
+.layoutCadastro {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  position: relative;
+  width: 60vw;
+  height: 50vh;
+  border: 1px solid black;
+}
+
+main .mainFundo {
+  width: 100vw;
   height: 100vh;
+  object-fit: fill;
 }
 
-.container {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  width: 350px;
-  text-align: center;
-}
-
-.container h1 {
-  font-size: 26px;
-  margin-bottom: 20px;
-  color: #ff4141;
-  text-shadow: 1px 1px 0px #fff;
-}
-
-label {
-  display: block;
-  font-size: 14px;
-  margin: 10px 0 5px;
-  text-align: left;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #ffcb05;
-  border-radius: 10px;
-  outline: none;
-  margin-bottom: 15px;
-  font-size: 14px;
-}
-
-input:focus,
-select:focus {
-  border-color: #ff4141;
-}
-
-.checkbox {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-  font-size: 13px;
-}
-
-.checkbox input {
-  margin-right: 8px;
-}
-
-.btn {
-  background: #ffcb05;
-  color: #2c2c2c;
-  border: none;
-  padding: 12px;
-  border-radius: 15px;
-  font-size: 16px;
-  cursor: pointer;
-  width: 100%;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #ff4141;
-  color: white;
-}
-
-.pikachu {
-  width: 120px;
-  margin-bottom: -20px;
+.corpoAbsolute {
+  position: absolute;
+  top: 1;
 }
