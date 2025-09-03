@@ -1,15 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
 body {
   margin: 0;
   padding: 0;
 }
 
+main {
+  background-image: url(../imagens/cadastre-se/Fundo.png);
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
 .layoutCadastro {
+  width: inherit;
+  height: inherit;
+}
+
+.layoutCadastroFlex {
+  width: inherit;
+  height: inherit;
   display: flex;
   justify-content: center;
-  align-content: center;
-  position: relative;
-  width: 60vw;
-  height: 50vh;
+  align-items: center;
+}
+
+.layoutCadastroFlexCorpo {
+  width: 80%;
+  height: 80%;
   border: 1px solid black;
 }
 
@@ -19,7 +36,21 @@ main .mainFundo {
   object-fit: fill;
 }
 
+.logoTexto {
+  font-family: "Fredoka", sans-serif;
+  font-size: 4rem;
+  color: RGB(250, 214, 29);
+  text-shadow: 7px 3px 0px rgb(0, 57, 102), -2px 2px 0px rgb(0, 57, 102), 2px -2px 0px rgb(0, 57, 102), -2px -2px 0px rgb(0, 57, 102);
+  /* Borda inferior esquerda */
+}
+
 .corpoAbsolute {
   position: absolute;
   top: 1;
+}
+
+.mainH1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
