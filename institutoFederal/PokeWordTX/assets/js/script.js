@@ -24,3 +24,15 @@ document.querySelector('.prev').addEventListener('click', () => {
 
 // Exibe o primeiro slide ao carregar
 showSlide();
+
+// Consertando a data no cadastro para não deixar aparecer 5 numero defeito do crome
+
+document.getElementById('dataNascimento').addEventListener('change', function () {
+  const data = this.value;
+  const ano = parseInt(data.split('-')[0], 10);
+
+  if (ano > 9999) {
+    alert('Por favor, insira um ano com no máximo 4 dígitos.');
+    this.value = ''; // limpa o campo
+  }
+});
