@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+
+.corpoMainCadastre {
+
+    background-image: url(../imagens/cadastre-se/Fundo.png);
+    background-position: center;
+    height: 73vh
+}
+
+.mainCorpoFormularioCadastre {
+    height: 39rem;
+}
+
+.botaoCadastre {
+    margin-top: .5rem;
+    background-color: rgb(239, 86, 67);
+}
+
+.imagem {
+    background-image: url(../imagens/cadastre-se/pikachu.png);
+    background-repeat: no-repeat;
+    width: 300px;
+    height: 374px;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+}

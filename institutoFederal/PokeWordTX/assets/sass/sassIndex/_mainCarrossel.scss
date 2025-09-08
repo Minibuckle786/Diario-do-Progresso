@@ -1,0 +1,71 @@
+.carrossel-container {
+    position: relative;
+    width: 95%;
+    margin: 0 auto;
+    overflow: hidden;
+    max-width: 1080px;
+}
+
+.slide {
+    min-width: 25%;
+    /* Exibe 4 imagens */
+    box-sizing: border-box;
+}
+
+
+/* Estilo dos botões */
+.carrossel-container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.carrossel-container button.prev {
+    left: 10px;
+}
+
+.carrossel-container button.next {
+    right: 10px;
+}
+
+.carrossel-container button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carrossel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carrossel img {
+    width: 20rem;
+    height: 20rem;
+    border: 1px solid black;
+    margin: 2rem;
+    object-fit: cover;
+}
+
+.carrosselLayoutPokemons {
+    border: 1px solid black;
+    margin-right: 1rem;
+    height: 40rem;
+}
+
+.carrosselLayoutPokemons h2 {
+    margin: 0 0 0 2rem;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.carrosselLayoutPokemons p {
+    margin: 1rem 0 0 2rem;
+    font-size: 1.4rem;
+}

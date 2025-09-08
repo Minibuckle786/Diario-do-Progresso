@@ -1,0 +1,17 @@
+// Index
+@use './sassIndex/header' as *;
+@use './sassIndex/mainFundoBanner' as *;
+@use './sassIndex/mainTitulo' as *;
+@use './sassIndex/mainCarrossel' as *;
+@use './sassIndex/footer' as *;
+
+// Login
+@use 'sassLogin/login' as *;
+
+// Cadastra-se
+@use './sassCadastro/cadastro' as *;
+
+// Reset
+@use './reset/reset' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');

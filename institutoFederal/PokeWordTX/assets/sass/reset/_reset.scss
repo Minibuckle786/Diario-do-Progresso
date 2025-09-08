@@ -1,0 +1,101 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.larguraPadrao {
+    width: 95%;
+    margin: auto;
+}
+
+.padraoBotao {
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.corpoAbsolute {
+    box-sizing: border-box;
+    width: 40rem;
+}
+
+.layoutCadastroFlexCorpo {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.corpoMainLogin {
+    background-image: url(../imagens/fundo/fundoDaImagem.png);
+    background-position: center;
+    height: 69vh;
+}
+
+.layoutCadastroFlex {
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corpoMainLogin .mainFundo {
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+}
+
+.logoTexto {
+    font-family: "Fredoka", sans-serif;
+    font-size: 3rem;
+    color: RGB(250, 214, 29);
+    text-shadow:
+        7px 3px 0px rgb(0, 57, 102),
+        /* Borda superior direita */
+        -2px 2px 0px rgb(0, 57, 102),
+        /* Borda inferior direita */
+        2px -2px 0px rgb(0, 57, 102),
+        /* Borda superior esquerda */
+        -2px -2px 0px rgb(0, 57, 102);
+    /* Borda inferior esquerda */
+}
+
+.mainH1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+    height: 110px;
+}
+
+
+.mainCorpoFormulario {
+    background-color: white;
+    border-radius: 1.2rem;
+}
+
+.mainFormulario {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.mainLayoutLabel {
+    margin: 0 0 1rem 0;
+
+}
+
+.mainLayoutLabel input {
+    border: 0;
+    background-color: rgb(246, 246, 247);
+    margin-top: 0.5rem;
+    border-radius: 0.3rem;
+    height: 3.4rem;
+    width: 100%;
+    padding-left: 10px;
+}

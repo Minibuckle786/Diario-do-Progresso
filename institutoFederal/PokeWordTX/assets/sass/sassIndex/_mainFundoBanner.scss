@@ -1,0 +1,60 @@
+.fundo {
+    position: relative;
+}
+
+.fundo .fundoBanner {
+    width: 100vw;
+    height: 60vh;
+}
+
+.fundoBannerLayout {
+    position: absolute;
+    top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 60vh;
+}
+
+.fundoBannerLayout1 {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 500;
+    font-size: 4rem;
+    color: white;
+    text-shadow:
+        2px 2px 0px gray,
+        /* Borda superior direita */
+        -2px 2px 0px gray,
+        /* Borda inferior direita */
+        2px -2px 0px gray,
+        /* Borda superior esquerda */
+        -2px -2px 0px gray;
+    /* Borda inferior esquerda */
+}
+
+.fundoBannerLayout1 span {
+    font-size: 7rem;
+    color: RGB(250, 214, 29);
+    text-shadow:
+        7px 3px 0px rgb(0, 57, 102),
+        /* Borda superior direita */
+        -2px 2px 0px rgb(0, 57, 102),
+        /* Borda inferior direita */
+        2px -2px 0px rgb(0, 57, 102),
+        /* Borda superior esquerda */
+        -2px -2px 0px rgb(0, 57, 102);
+    /* Borda inferior esquerda */
+}
+
+.fundoBannerLayout2 img {
+    width: 30rem;
+    height: 30rem;
+}
+
+.botaoFundoBanner {
+    width: 20rem;
+    background-color: rgb(56, 110, 176);
+    color: white;
+    font-weight: 700;
+}
