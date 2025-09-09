@@ -1,14 +1,17 @@
 .layoutHeader {
     display: flex;
-    height: 12rem;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 0;
 
 }
 
-
 .logo img {
-    height: 9rem;
+    height: 6rem;
+    max-height: 80px;
+    width: auto;
 }
 
 .headerInput {

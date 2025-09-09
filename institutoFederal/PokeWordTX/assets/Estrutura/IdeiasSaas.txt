@@ -1,0 +1,112 @@
+// =======================================
+// Variáveis
+// =======================================
+$colors: (
+    primary: #ff3e3e,
+    secondary: #2e2e2e,
+    background: #f8f8f8,
+    text: #333
+);
+
+$breakpoints: (
+    sm: 480px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px
+);
+
+// =======================================
+// Mixins
+// =======================================
+@mixin respond-to($break) {
+    @media (max-width: map-get($breakpoints, $break)) {
+        @content;
+    }
+}
+
+// Flex centralizado
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// =======================================
+// Reset + base
+// =======================================
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: map-get($colors, background);
+    color: map-get($colors, text);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto; // Header - Main - Footer
+}
+
+// =======================================
+// Layout principal
+// =======================================
+header,
+footer {
+    background: map-get($colors, primary);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 2rem 1rem;
+}
+
+// =======================================
+// Container
+// =======================================
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+// =======================================
+// Exemplo de Grid
+// =======================================
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    @include respond-to(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(sm) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// =======================================
+// Exemplo de Card (pra Pokémons)
+// =======================================
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
