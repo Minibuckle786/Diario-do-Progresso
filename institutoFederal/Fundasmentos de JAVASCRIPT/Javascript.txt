@@ -1,0 +1,48 @@
+1°) Introdução ao Javascript
+
+O que é JavaScript?
+
+JavaScript é uma linguagem de programação usada para tornar as páginas da web interativas e dinâmicas.
+
+Funciona nos navegadores (como Chrome, Firefox, etc.)
+
+Também pode ser usada no servidor com Node.js
+
+✅ Para que serve o JavaScript?
+
+JavaScript é usado para:
+
+Interatividade: cliques, animações, menus, sliders, etc.
+
+Validação de formulários no navegador
+
+Alterar conteúdo da página sem recarregar
+
+Criar jogos, aplicações web e mobile
+
+Conectar com servidores/APIs para buscar ou enviar dados
+
+Desenvolvimento backend com Node.js
+
+-----------------------------------------------------------------------
+
+2°) Como vamos programar JS
+
+Apresentação mostra onde digitar o código exemplo VSCode e onde abrir no navegador no console para brincar com o código JS
+
+
+-----------------------------------------------------------------------
+
+3°) 
+
+
+
+
+
+
+
+
+
+
+
+

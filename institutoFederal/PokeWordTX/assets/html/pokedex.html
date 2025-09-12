@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeWorldTXT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .pokemon-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 250px;
+            margin: auto;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🔴 PokeWorldTXT 🔵</h1>
+    <input type="text" id="pokemonInput" placeholder="Digite o nome do Pokémon">
+    <button onclick="buscarPokemon()">Buscar</button>
+
+    <div id="pokemonCard" class="pokemon-card" style="display:none;">
+        <h2 id="pokemonName"></h2>
+        <img id="pokemonImg" alt="Imagem do Pokémon">
+        <p><strong>Tipo:</strong> <span id="pokemonType"></span></p>
+    </div>
+
+    <script>
+        async function buscarPokemon() {
+            const nome = document.getElementById("pokemonInput").value.toLowerCase();
+            const url = `https://pokeapi.co/api/v2/pokemon/${nome}`;
+
+            try {
+                const resposta = await fetch(url);
+                if (!resposta.ok) throw new Error("Pokémon não encontrado");
+
+                const dados = await resposta.json();
+
+                document.getElementById("pokemonName").textContent = dados.name;
+                document.getElementById("pokemonImg").src = dados.sprites.front_default;
+                document.getElementById("pokemonType").textContent = dados.types.map(t => t.type.name).join(", ");
+
+                document.getElementById("pokemonCard").style.display = "block";
+            } catch (erro) {
+                alert(erro.message);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
