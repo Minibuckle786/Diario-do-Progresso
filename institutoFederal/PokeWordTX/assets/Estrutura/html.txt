@@ -1,0 +1,30 @@
+<body>
+    <header>
+        <h1>PokeWorldTXT</h1>
+    </header>
+
+    <main class="container">
+        <section class="grid">
+            <div class="card">
+                <h2>Pikachu</h2>
+                <p>Tipo: Elétrico</p>
+            </div>
+            <div class="card">
+                <h2>Bulbasaur</h2>
+                <p>Tipo: Planta</p>
+            </div>
+            <div class="card">
+                <h2>Charmander</h2>
+                <p>Tipo: Fogo</p>
+            </div>
+            <div class="card">
+                <h2>Squirtle</h2>
+                <p>Tipo: Água</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 PokeWorldTXT</p>
+    </footer>
+</body>
