@@ -68,11 +68,12 @@ class BigMoster extends Character {
 // Inicio pegar que e os persogens e cenario
 
 class Stage {
-    constructor(fighter1, fighter2, fighter1El, fighter2El) {
+    constructor(fighter1, fighter2, fighter1El, fighter2El, logObject) {
         this.fighter1 = fighter1;
         this.fighter2 = fighter2;
         this.fighter1El = fighter1El;
         this.fighter2El = fighter2El;
+        this.log = logObject;
     }
     start() {
         this.update();
@@ -83,18 +84,70 @@ class Stage {
     }
     update() {
         // fighter1
-        this.fighter1El.querySelector('.name').innerHTML = `${this.fighter1.name} - ${this.fighter1.life} HP`;
+        this.fighter1El.querySelector('.name').innerHTML = `${this.fighter1.name} - ${this.fighter1.life.toFixed(2)} HP`;
         let f1Pct = (this.fighter1.life / this.fighter1.maxLife) * 100;
         this.fighter1El.querySelector('.bar').style.width = `${f1Pct}%`
 
 
         // fighter2
-        this.fighter2El.querySelector('.name').innerHTML = `${this.fighter2.name} - ${this.fighter2.life} HP`;
+        this.fighter2El.querySelector('.name').innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(2)} HP`;
         let f2Pct = (this.fighter2.life / this.fighter2.maxLife) * 100;
         this.fighter2El.querySelector('.bar').style.width = `${f2Pct}%`
     }
 
     doAttack(attacking, attacked) {
-        console.log(`${attacking.name} está atacando ${attacked.name}`)
+
+        // Verificando se algum lado esta morto - inicio
+        if (attacking.life <= 0 || attacked.life <= 0) {
+            this.log.addMessage(`Atacando cachorro morto.`);
+            return;
+        }
+        // Verificando se algum lado esta morto - Fim
+
+        // Criando ataques ou danos aleatorios - Inicio 
+        let attackFactor = (Math.random() * 2).toFixed(2);
+        let defenseFactor = (Math.random() * 2).toFixed(2);
+        // Criando ataques ou danos aleatorios - Fim
+
+        // Pegando o dano aleatorio e multiplicando pelo ataque do NPS - inicio
+        let actualAttack = attacking.attack * attackFactor;
+        let actualDefense = attacking.defense * defenseFactor;
+        // Pegando o dano aleatorio e multiplicando pelo ataque do NPS - Fim
+
+        // Esse if verifica se o dano atual e maior que a defesa e o que deve fazer caso for ou não - Inicio
+        if (actualAttack > actualDefense) {
+            attacked.life -= actualAttack;
+            this.log.addMessage(`${attacking.name} causou ${actualAttack.toFixed(2)} de dano em ${attacked.name}`)
+        } else {
+            this.log.addMessage(`${attacked.name} conseguiu defender...`);
+        }
+        // Esse if verifica se o dano atual e maior que a defesa e o que deve fazer caso for ou não - Inicio
+
+        this.update();
+    }
+}
+// LOG ou mostrar na tela o que esta acontecendo
+class Log {
+    list = [];
+
+
+    constructor(listEl) {
+        this.listEl = listEl;
+    }
+
+    addMessage(msg) {
+        this.list.push(msg); // Adiciona a mensagem no array
+        this.render(); // Exibi a lista de mensagem 
+    }
+    render() {
+        // Limpando a lista - Inicio
+        this.listEl.innerHTML = '';
+        // Limpando a lista - Fim
+
+        // Mostrando a mensagem - Inicio
+        for (let i in this.list) {
+            this.listEl.innerHTML += ` <li>${this.list[i]}</li>`;
+        }
+        // Mostrando a mensagem - Fim
     }
 }
