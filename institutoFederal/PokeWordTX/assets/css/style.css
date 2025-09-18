@@ -3,17 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
 .layoutHeader {
   display: flex;
+  height: 12rem;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem 0;
 }
 
 .logo img {
-  height: 6rem;
-  max-height: 80px;
-  width: auto;
+  height: 9rem;
 }
 
 .headerInput {
@@ -324,4 +320,50 @@ body {
   height: 3.4rem;
   width: 100%;
   padding-left: 10px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.navMenuPokedex,
+.navUlPokedex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.liMenuPokedex {
+  margin: 5px;
+  list-style: none;
+  background-color: #1b1830;
+  /* Cor de fundo escuro */
+  color: #ffc700;
+  /* Cor do texto dourado */
+  border: 3px solid #ffc700;
+  /* Borda dourada */
+  border-radius: 20px;
+  /* Cantos arredondados */
+  padding: 15px 30px;
+  /* Espaçamento interno */
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 199, 0, 0.2666666667);
+  /* leve brilho dourado */
+  font-family: Arial, sans-serif;
+}
+
+.layoutCorpo {
+  display: flex;
+}
+
+.layoutCorpoMain {
+  flex: 9;
+  display: flex;
+}
+
+.layoutCorpoAside {
+  flex: 1;
 }

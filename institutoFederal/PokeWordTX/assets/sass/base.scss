@@ -14,4 +14,8 @@
 // Reset
 @use './reset/reset' as *;
 
+// Pokedex
+
+@use 'sassPokedex/pokedex' as *;
+
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');

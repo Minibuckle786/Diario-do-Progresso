@@ -1,0 +1,45 @@
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+.navMenuPokedex,
+.navUlPokedex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.liMenuPokedex {
+    margin: 5px;
+    list-style: none;
+    background-color: #1b1830;
+    /* Cor de fundo escuro */
+    color: #ffc700;
+    /* Cor do texto dourado */
+    border: 3px solid #ffc700;
+    /* Borda dourada */
+    border-radius: 20px;
+    /* Cantos arredondados */
+    padding: 15px 30px;
+    /* Espaçamento interno */
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 10px #ffc70044;
+    /* leve brilho dourado */
+    font-family: Arial, sans-serif;
+}
+
+.layoutCorpo {
+    display: flex;
+}
+
+.layoutCorpoMain {
+    flex: 9;
+    display: flex;
+}
+
+.layoutCorpoAside {
+    flex: 1;
+}
