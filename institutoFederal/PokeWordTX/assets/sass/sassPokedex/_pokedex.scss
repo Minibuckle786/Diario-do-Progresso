@@ -13,21 +13,15 @@
 .liMenuPokedex {
     margin: 5px;
     list-style: none;
-    background-color: #1b1830;
-    /* Cor de fundo escuro */
-    color: #ffc700;
-    /* Cor do texto dourado */
-    border: 3px solid #ffc700;
-    /* Borda dourada */
-    border-radius: 20px;
-    /* Cantos arredondados */
-    padding: 15px 30px;
-    /* Espaçamento interno */
+    background-color: #1b1830; /* Cor de fundo escuro */
+    color: #ffc700;  /* Cor do texto dourado */
+    border: 3px solid #ffc700;/* Borda dourada */
+    border-radius: 20px;   /* Cantos arredondados */
+    padding: 15px 30px; /* Espaçamento interno */
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    box-shadow: 0 0 10px #ffc70044;
-    /* leve brilho dourado */
+    box-shadow: 0 0 10px #ffc70044; /* leve brilho dourado */
     font-family: Arial, sans-serif;
 }
 
@@ -38,8 +32,35 @@
 .layoutCorpoMain {
     flex: 9;
     display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0 20px 0;
 }
 
 .layoutCorpoAside {
     flex: 1;
+}
+
+.mainPokemonCards{
+    min-width: 300px;
+    height: 400px;
+    margin: 20px;
+    list-style: none;
+    flex: 1;
+    border: 4px solid;
+    border-image: linear-gradient(135deg, #FFD700, #FFA500, #FFD700) 1;
+}
+.layoutCorpoAside{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.layoutCorpoAside h2{
+    font-size: 2.5rem;
+}
+.layoutCorpoAsideUl{
+    padding: 0;
+}
+
+.layoutCorpoAsideLi{
+    font-size: 2rem;
 }
