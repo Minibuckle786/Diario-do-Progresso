@@ -36,3 +36,45 @@ document.getElementById('dataNascimento').addEventListener('change', function ()
     this.value = ''; // limpa o campo
   }
 });
+
+
+// Pokedex
+
+/* Dados testes 
+
+async function carregarPokemons(qtd = 20) {
+  for (let i = 1; i <= qtd; i++) {
+    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    const dados = await resposta.json();
+
+    console.log(dados);
+  }
+}
+undefined
+carregarPokemons(); 
+
+*/
+
+async function carregarPokemons(qtd = 20) {
+  const container = document.getElementById('pokemonContainer');
+
+  for (let i = 1; i <= qtd; i++) {
+    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    const dados = await resposta.json();
+
+    console.log(dados); // Para ver no console
+
+    const card = document.createElement('div');
+    card.classList.add('mainPokemonCards');
+
+    card.innerHTML = `
+                    <img src="${dados.sprites.front_default}" alt="${dados.name}">
+                    <h3>${dados.name.charAt(0).toUpperCase() + dados.name.slice(1)}</h3>
+                    <p>Tipo: ${dados.types.map(tipo => tipo.type.name).join(', ')}</p>
+                `;
+
+    container.appendChild(card);
+  }
+}
+
+carregarPokemons(); // 👈 NÃO ESQUEÇA DE CHAMAR A FUNÇÃO
