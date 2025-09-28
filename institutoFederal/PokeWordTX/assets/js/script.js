@@ -1,3 +1,6 @@
+/*
+
+
 // Variáveis de controle do carrossel
 let index = 0;  // Índice do slide atual
 const slides = document.querySelectorAll('.slide');  // Todos os slides
@@ -66,6 +69,7 @@ async function carregarPokemons(qtd = 20) {
 
     const card = document.createElement('div');
     card.classList.add('mainPokemonCards');
+    card.classList.add('mainPokemonCardsEstiloJs');
 
     card.innerHTML = `
                     <img src="${dados.sprites.front_default}" alt="${dados.name}">
@@ -77,4 +81,4 @@ async function carregarPokemons(qtd = 20) {
   }
 }
 
-carregarPokemons(); // 👈 NÃO ESQUEÇA DE CHAMAR A FUNÇÃO
+carregarPokemons();
