@@ -1,0 +1,46 @@
+1. Obter Dados dos Pokémons da API
+
+Uma das APIs mais usadas para pegar dados de Pokémon é a PokéAPI
+, que fornece dados sobre os Pokémon, seus tipos, movimentos, estatísticas de batalha e muito mais. Podemos pegar dois Pokémon aleatórios dessa API.
+
+2. Estrutura do Jogo
+Dados Importantes de Cada Pokémon:
+
+Nome: Nome do Pokémon.
+
+Tipos: O tipo de Pokémon (Fogo, Água, Planta, Elétrico, etc.).
+
+Ataque: A força de ataque do Pokémon.
+
+Defesa: A resistência do Pokémon.
+
+HP (Health Points): Saúde do Pokémon.
+
+Vantagens e Desvantagens de Tipos:
+
+Você pode criar uma tabela de relações de tipos. Exemplo:
+
+Tipo 1	Tipo 2	Resultado
+Fogo	Planta	Fogo > Planta (Fogo vence)
+Fogo	Água	Fogo < Água (Água vence)
+Água	Fogo	Água > Fogo (Água vence)
+Elétrico	Água	Elétrico > Água (Elétrico vence)
+Elétrico	Terra	Elétrico < Terra (Terra vence)
+
+Esse tipo de tabela ajudaria a definir qual Pokémon vence em função dos tipos.
+
+3. Estrutura do Jogo:
+
+Escolha de Pokémon: O jogo escolhe dois Pokémon aleatórios da API.
+
+Batalha: Cada Pokémon ataca o outro, com base no ataque, defesa, e tipo. Se um tipo for vantajoso sobre o outro, o dano seria maior.
+
+Cálculo de Dano: Você pode definir uma fórmula simples de cálculo de dano, onde fatores como ataque, defesa e tipos são levados em consideração.
+
+4. Simulando o Combate:
+
+Um Pokémon ataca, o outro defende (considerando tipo de ataque e defesa).
+
+O cálculo de dano seria ajustado para as vantagens e desvantagens de tipo.
+
+O primeiro Pokémon a ter seus HPs zerados perde.
