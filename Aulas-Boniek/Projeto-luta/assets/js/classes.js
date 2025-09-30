@@ -89,6 +89,7 @@ class Stage {
         this.fighter1El.querySelector('.bar').style.width = `${f1Pct}%`
 
 
+
         // fighter2
         this.fighter2El.querySelector('.name').innerHTML = `${this.fighter2.name} - ${this.fighter2.life.toFixed(2)} HP`;
         let f2Pct = (this.fighter2.life / this.fighter2.maxLife) * 100;

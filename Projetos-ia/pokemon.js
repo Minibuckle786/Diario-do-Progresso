@@ -1,13 +1,23 @@
-
 // obterPokemonAleatorio = inicio
 
 /*
+Explicação das Funções:
+
+obterPokemonAleatorio(): Pega um Pokémon aleatório a partir de um ID gerado aleatoriamente e retorna as informações desse Pokémon (como tipo, stats, etc.).
+
+tiposVantagens: Define como o tipo de um Pokémon interage com o tipo do adversário. A tabela de vantagens pode ser expandida conforme necessário.
+
+calcularDano(): Calcula o dano baseado no ataque do Pokémon, na defesa do adversário e nas vantagens de tipo.
+
+batalha(): Simula uma batalha entre dois Pokémons. Cada Pokémon ataca em turnos até que o HP de um deles chegue a 0. O primeiro a zerar o HP perde.
+
 1. Obter Pokémon Aleatórios da PokéAPI
 
 Vamos usar a fetch para obter dois Pokémon aleatórios da PokéAPI. Para isso, vamos fazer uma função que busca dados sobre Pokémon usando um ID aleatório.
 
-*/
 
+
+*/
 
 async function obterPokemonAleatorio() {
     const id = Math.floor(Math.random() * 1000) + 1; // ID aleatório entre 1 e 1000
