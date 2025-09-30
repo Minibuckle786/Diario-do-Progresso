@@ -1,0 +1,158 @@
+JS
+
+areaduelo
+
+-------------------------------------------------------------------------------------
+
+1° Passo localizar todos os pokemons é pegar um aleatorio
+
+---------------
+math.floor(); = retira a parte decimal
+
+Exemplos
+
+Math.floor(4.9); // resultado: 4
+Math.floor(7.1); // resultado: 7
+Math.floor(3.999); // resultado: 3
+
+---------------
+
+Math.random() = Retorna um número decimal aleatório entre 0 (inclusive) e 1 (exclusivo), como 0.5432, 0.9283, etc.
+
+---------------
+
++ 1 = Isso garante que o menor número possível seja 1, não 0. Resultado final: número entre 1 e 1000
+
+-------------------------------------------------------------------------------------
+
+3° = Defensor e atacante
+
+?. (encadeamento opcional) = é uma forma segura de acessar propriedades ou índices de um objeto (ou array), sem causar erro caso algo no caminho seja undefined ou null.
+Resumindo acessa a primeira propriedade e caso achar ela ele continua o caminho exemplo 
+
+const pessoa = {
+  nome: "João",
+  endereco: {
+    cidade: "São Paulo"
+  }
+};
+
+console.log(pessoa.endereco.cidade); // "São Paulo"
+console.log(pessoa.endereco.estado); // undefined
+console.log(pessoa.contato.telefone); // ERRO! contato é undefined
+
+-------------------------------------------------------------------------------------
+
+4°
+
+.find() é usado para procurar um item dentro de um array (lista) que atenda a uma condição.
+
+Ele retorna o primeiro item que satisfaz a condição — e para de procurar assim que encontra.
+
+✅ Sintaxe:
+array.find(callback);
+
+
+callback: é uma função que retorna true ou false para cada item do array.
+
+O primeiro item que retornar true será o resultado.
+
+Se nenhum item atender à condição, o resultado será undefined.
+
+Como ela é usada com .find():
+defensor.stats.find(stat => stat.stat.name === 'defense')
+
+
+Aqui:
+
+stat => stat.stat.name === 'defense'
+É uma arrow function que:
+
+Recebe cada item do array (stat)
+
+Verifica se stat.stat.name é igual a 'defense'
+
+Retorna true ou false
+
+E o .base_stat?
+
+Depois que .find(...) encontra o objeto, você acessa a propriedade .base_stat dele:
+
+{
+  stat: { name: 'defense' },
+  base_stat: 49
+}
+
+
+Então:
+
+.find(...) ➜ { stat: { name: 'defense' }, base_stat: 49 }
+
+
+E:
+
+.find(...).base_stat ➜ 49
+
+✅ Resumo
+Parte	O que é
+stat => ...	Arrow function
+.find(...)	Procura o primeiro item que dá true
+.base_stat	Acessa o valor de defesa (base_stat)
+
+-------------------------------------------------------------------------------------
+
+5°
+
+return Math.max(dano, 0);
+✅ O que ela faz?
+Ela retorna o maior valor entre dano e 0.
+
+Ou seja:
+
+Se dano for positivo (ex: 30), ela retorna 30
+
+Se dano for negativo (ex: -12), ela retorna 0
+
+📌 Para que serve isso?
+Serve como proteção contra valores negativos.
+
+Imagina que você está calculando o dano de um ataque no seu jogo (tipo Pokémon), e por alguma razão o cálculo resulta em um número negativo — o que não faz sentido em termos de dano.
+
+Então, pra garantir que o dano mínimo seja 0, você usa:
+
+javascript
+Copiar código
+Math.max(dano, 0);
+
+Então, pra garantir que o dano mínimo seja 0, você usa:
+
+Math.max(dano, 0);
+
+🧠 Exemplo:
+function calcularDano(danoCalculado) {
+  return Math.max(danoCalculado, 0);
+}
+
+console.log(calcularDano(25));   // 25
+console.log(calcularDano(-10));  // 0
+console.log(calcularDano(0));    // 0
+
+✅ Em resumo:
+
+Essa linha garante que o dano nunca será menor que zero.
+
+-------------------------------------------------------------------------------------
+
+6°
+
+
+
+
+
+
+
+
+
+
+
+
