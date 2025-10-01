@@ -1,0 +1,19 @@
+.fundoDuelo {
+    background-image: url('../imagens/fundoJogoDuelo/Fogo.png');
+    background-size: cover;
+    /* ou contain */
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+.areadeDuelo {
+    display: flex;
+    height: 100vh;
+}
+
+.tamanhoAreaDuelo,
+.tamanhoAreaDuelo2 {
+    flex: 1;
+}

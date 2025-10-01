@@ -58,7 +58,7 @@ carregarPokemons();
 
 */
 
-async function carregarPokemons(qtd = 20) {
+async function carregarPokemons(qtd = 1010) {
   const container = document.getElementById('pokemonContainer');
 
   for (let i = 1; i <= qtd; i++) {

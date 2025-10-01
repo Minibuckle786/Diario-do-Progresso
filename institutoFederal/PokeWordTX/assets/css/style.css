@@ -551,30 +551,22 @@ ul {
   right: 21%;
 }
 
-.fightarea {
+.fundoDuelo {
+  background-image: url("../imagens/fundoJogoDuelo/Fogo.png");
+  background-size: cover;
+  /* ou contain */
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.areadeDuelo {
   display: flex;
-  gap: 20px;
+  height: 100vh;
 }
 
-#char,
-#monster {
+.tamanhoAreaDuelo,
+.tamanhoAreaDuelo2 {
   flex: 1;
-}
-
-.lifebar {
-  height: 10px;
-  border: 1px solid #333;
-  border-radius: 5px;
-}
-
-.lifebar .bar {
-  height: inherit;
-  background-color: red;
-  border-radius: 5px;
-}
-
-.log {
-  border: 1px dotted #999;
-  height: 200px;
-  overflow-y: scroll;
 }
