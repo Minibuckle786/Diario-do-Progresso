@@ -596,3 +596,12 @@ ul {
   height: 1rem;
   background-color: red;
 }
+
+.imagemPokemonDesafianteimg img {
+  height: 500px;
+  width: 500px;
+}
+
+.imagemPokemonDesafiante {
+  border: 9px solid black;
+}
