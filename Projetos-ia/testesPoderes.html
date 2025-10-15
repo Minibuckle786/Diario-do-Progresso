@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Golpes Pokémon Interativos</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+    max-width: 600px;
+    margin: auto;
+  }
+  .golpe {
+    background: white;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.3s;
+    user-select: none;
+  }
+  .golpe:hover {
+    border-color: #4CAF50;
+    background-color: #e8f5e9;
+  }
+  .golpe img {
+    width: 64px;
+    height: 64px;
+  }
+  .golpe.selecionado {
+    border-color: #388E3C;
+    background-color: #c8e6c9;
+  }
+  #info {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
+</style>
+</head>
+<body>
+
+<h1>Escolha um golpe</h1>
+<div class="grid" id="gridGolpes">
+  <!-- Golpes vão ser inseridos aqui pelo JS -->
+</div>
+
+<div id="info">Clique em um golpe para ver detalhes.</div>
+
+<script>
+  // Exemplo de golpes com nomes e "ícones" emoji (pode substituir por imagens)
+  const golpes = [
+    { nome: 'Tackle', icone: '⚔️', descricao: 'Um ataque físico simples e básico.' },
+    { nome: 'Ember', icone: '🔥', descricao: 'Ataca com pequenas chamas.' },
+    { nome: 'Water Gun', icone: '💧', descricao: 'Dispara jatos de água para atacar.' },
+    { nome: 'Thunder Shock', icone: '⚡', descricao: 'Golpe elétrico que pode paralisar.' },
+    { nome: 'Vine Whip', icone: '🌿', descricao: 'Ataque com vinhas rápidas.' }
+  ];
+
+  const grid = document.getElementById('gridGolpes');
+  const info = document.getElementById('info');
+
+  golpes.forEach((golpe, index) => {
+    const div = document.createElement('div');
+    div.className = 'golpe';
+    div.innerHTML = `<div style="font-size:40px;">${golpe.icone}</div><strong>${golpe.nome}</strong>`;
+    div.onclick = () => {
+      // Remove seleção dos outros
+      document.querySelectorAll('.golpe').forEach(el => el.classList.remove('selecionado'));
+      // Seleciona o clicado
+      div.classList.add('selecionado');
+      // Mostra detalhes
+      info.textContent = `${golpe.nome}: ${golpe.descricao}`;
+    };
+    grid.appendChild(div);
+  });
+</script>
+
+</body>
+</html>

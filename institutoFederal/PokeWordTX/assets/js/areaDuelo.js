@@ -1,33 +1,42 @@
-// Classe Pokémon para armazenar as propriedades do Pokémon
+
 class Pokemon {
-    constructor(nome, foto, animacao, hp, tipos, poderes) {
+    constructor(nome, foto, hp, tipos, poderes) {
         this.nome = nome;
         this.foto = foto;
-        this.animacao = animacao;
         this.hp = hp;
-        this.tipos = tipos;
-        this.poderes = poderes; // Um array de poderes
+        this.tipos = tipos; // Ex: ["fogo"]
+        this.poderes = poderes; // Ex: [{ nome: "Chama", poder: 50 }]
     }
 
-    // Atacar() = gera uma valor aleatorio de poder 
-    atacar() {
-        // Atacar com um poder aleatório
-        const poderAleatorio = this.poderes[Math.floor(Math.random() * this.poderes.length)];
-        return poderAleatorio;
+    atacar(indicePoder, oponente, tiposVantagens) {
+        const poder = this.poderes[indicePoder];
+        const tipoAtacante = this.tipos[0]; // Usa o primeiro tipo
+        const tipoOponente = oponente.tipos[0];
+
+        let danoBase = poder.poder || 40;
+        const fatorAleatorio = (Math.random() * 0.3) + 0.85;
+        let dano = danoBase * fatorAleatorio;
+
+        if (tiposVantagens[tipoAtacante]?.forteContra === tipoOponente) {
+            dano *= 1.5;
+        } else if (tiposVantagens[tipoAtacante]?.fracoContra === tipoOponente) {
+            dano *= 0.5;
+        }
+
+        oponente.receberDano(dano);
     }
 
-    // Recebo o dano como parametro para dar sequencia nos processos o if não esta com o {} para poder mostrar o console independente do resultado se positivo ou negativo
     receberDano(dano) {
         this.hp -= dano;
         if (this.hp < 0) this.hp = 0;
-        console.log(`${this.nome} recebeu ${dano} de dano. HP restante: ${this.hp}`);
+        console.log(`${this.nome} recebeu ${dano.toFixed(2)} de dano. HP restante: ${this.hp}`);
     }
 
     estaVivo() {
         return this.hp > 0;
     }
-
 }
+
 
 // Objeto de vantagens entre tipos (externo)
 const tiposVantagens = {
@@ -50,6 +59,26 @@ const tiposVantagens = {
     poison: { fairy: 2, grass: 2, steel: 0, rock: 0.5 },
     normal: { ghost: 0, rock: 0.5, steel: 0.5, electric: 1 }
 };
+const traducaoTipos = {
+    normal: "Normal",
+    fire: "Fogo",
+    water: "Água",
+    electric: "Elétrico",
+    grass: "Planta",
+    ice: "Gelo",
+    fighting: "Lutador",
+    poison: "Veneno",
+    ground: "Terrestre",
+    flying: "Voador",
+    psychic: "Psíquico",
+    bug: "Inseto",
+    rock: "Pedra",
+    ghost: "Fantasma",
+    dark: "Noturno",
+    dragon: "Dragão",
+    steel: "Metálico",
+    fairy: "Fada"
+};
 
 
 // Função para buscar dados da API Pokémon
@@ -64,26 +93,163 @@ async function obterPokemon() {
         // Extrair os dados relevantes
         const nome = data.name;
         const foto = data.sprites.front_default; // Foto do Pokémon
-        const tipos = data.types.map(typeInfo => typeInfo.type.name); // Tipos de Pokémon (ex: 'fogo', 'agua')
-        const hp = 100; // Você pode definir um HP inicial fixo ou puxar da API
-        const poderes = data.moves.map(move => ({ nome: move.move.name, dano: Math.floor(Math.random() * 20) + 10, tipo: 'normal' })); // Poderes do Pokémon
 
-        // Preenchendo os dados no HTML
-        // const teste = document.getElementsByClassName('imagemPokemonDesafiante');
-        document.getElementsByClassName('nomedoPokemon')[0].textContent = nome; // Enviando o nome para o html
-        document.getElementsByClassName('imagemPokemonDesafiante')[0].src = foto; // Enviando a foto para o html
-        document.getElementsByClassName('imagemPokemonDesafiante')[0].alt = nome; // // Enviando o nome da foto para o html
-        const hpEl = document.querySelector('#nomePlayer .corVida');
+        const tipos = data.types.map(typeInfo => {
+            const tiposIngles = typeInfo.type.name;
+            return traducaoTipos[tiposIngles] || tiposIngles;
+        }); // Tipos de Pokémon (ex: 'fogo', 'agua')
+
+        const hp = 100; // HP
+
+        // Pegar 4 poderes aleatórios
+        const poderes = data.moves
+            .slice(0, 4) // primeiros 4 ataques (ou você pode sortear aleatórios)
+            .map(move => ({
+                nome: move.move.name,
+                poder: Math.floor(Math.random() * 40) + 30, // poder aleatório entre 30 e 70
+            }));
+
+
         /*
+                // Preenchendo os dados no HTML Player
+                // const teste = document.getElementsByClassName('imagemPokemonDesafiante');
+                document.getElementsByClassName('nomedoPokemon')[0].textContent = nome; // Enviando o nome para o html
+                document.getElementsByClassName('imagemPokemonDesafiante')[0].src = foto; // Enviando a foto para o html
+                document.getElementsByClassName('imagemPokemonDesafiante')[0].alt = nome; // // Enviando o nome da foto para o html
+                document.querySelector('#nomePlayer .corVida').style.width = `${hp}%`;
+                let hpEl = document.getElementById('pokemon-types').textContent = `Tipos: ${tipos.join(', ')}`;
+        
+                // Preenchendo os dados no HTML Desafiante
+                document.getElementsByClassName('nomedoPokemonDesafiante')[0].textContent = nome; // Enviando o nome para o html
+                document.getElementsByClassName('imagemPokemonDesafiante2')[0].src = foto; // Enviando a foto para o html
+                document.getElementsByClassName('imagemPokemonDesafiante2')[0].alt = nome; // // Enviando o nome da foto para o html
+                document.querySelector('#nomedesafiante .vida .corVida').style.width = `${hp}%`;
         
         
+                //document.getElementById('pokemon-moves').textContent = `Poderes: ${poderes.map(p => p.nome).join(', ')}`;
         
-        document.getElementById('pokemon-types').textContent = `Tipos: ${tipos}`;
-        document.getElementById('pokemon-moves').textContent = `Poderes: ${poderes.map(p => p.nome).join(', ')}`;
-        */
-        console.log(hpEl);
+                console.log(hpEl);
+
+                */
+
+        const pokemon = new Pokemon(nome, foto, hp, tipos, poderes);
+        return pokemon;
     } catch (error) {
         console.log('Erro ao buscar Pokémon:', error);
     }
 }
 obterPokemon();
+
+
+
+// Botoes poderes
+document.querySelectorAll('.skill').forEach(skill => {
+    skill.addEventListener('click', () => {
+        skill.classList.add('active');
+        setTimeout(() => skill.classList.remove('active'), 3000);
+    });
+});
+(async () => {
+    // Busca dois pokémons aleatórios
+    const pokemon1 = await obterPokemon(6);  // Charizard
+    const pokemon2 = await obterPokemon(3);  // Venusaur
+
+    console.log(pokemon1);
+    console.log(pokemon2);
+
+    // pokemon1.atacar(0, pokemon2, tiposVantagens);
+})();
+
+// Estudar daqui para baixo
+
+// Função auxiliar para preencher os dados de UM Pokémon no HTML
+function preencherHtmlPokemon(pokemon, prefixo) {
+    // 1. Preenche o NOME e o HP
+    document.querySelector(`.${prefixo} .nomedoPokemon`).textContent = pokemon.nome;
+    document.querySelector(`#${prefixo} .corVida`).style.width = `${pokemon.hp}%`;
+    document.querySelector(`#${prefixo} .hpTotal`).textContent = pokemon.hp; // Se você tiver um elemento para mostrar o HP total
+
+    // 2. Preenche a IMAGEM
+    document.querySelector(`.${prefixo} .imagemPokemon`)[0].src = pokemon.foto;
+    document.querySelector(`.${prefixo} .imagemPokemon`)[0].alt = pokemon.nome;
+
+    // 3. Preenche os TIPOS (usando o array de tradução que salvamos)
+    document.querySelector(`#${prefixo} .pokemon-types`).textContent = `Tipos: ${pokemon.tiposParaExibicao.join(', ')}`;
+
+    // 4. Preenche os BOTÕES DE PODER (Apenas para o Player)
+    if (prefixo === 'player') {
+        const skillsContainer = document.querySelector('.skills');
+        skillsContainer.innerHTML = ''; // Limpa os botões anteriores
+
+        pokemon.poderes.forEach((poder, index) => {
+            const button = document.createElement('button');
+            button.classList.add('skill');
+            button.textContent = poder.nome;
+            button.dataset.index = index; // Salva o índice do poder para usar no ataque
+            skillsContainer.appendChild(button);
+        });
+
+        // RE-ADICIONA os listeners aos NOVOS botões de poder
+        document.querySelectorAll('.skill').forEach(skill => {
+            skill.addEventListener('click', () => {
+                skill.classList.add('active');
+                setTimeout(() => skill.classList.remove('active'), 3000);
+            });
+        });
+    }
+}
+
+
+// Função principal para iniciar o jogo
+async function iniciarBatalha() {
+    // 1. Busca os dois Pokémon
+    const pokemonPlayer = await obterPokemon();
+    const pokemonDesafiante = await obterPokemon();
+
+    if (!pokemonPlayer || !pokemonDesafiante) {
+        console.error("Não foi possível carregar um ou ambos os Pokémon.");
+        return;
+    }
+
+    console.log("Pokémon do Jogador:", pokemonPlayer);
+    console.log("Pokémon Desafiante:", pokemonDesafiante);
+
+    // 2. Preenche o HTML separadamente
+    // **Atenção:** Os seletores HTML devem ser ajustados para usar estes prefixos.
+    // Ex: Use `.player .nomedoPokemon` e `.desafiante .nomedoPokemon`
+    preencherHtmlPokemon(pokemonPlayer, 'player'); // Assumindo que você usa 'player' como prefixo/classe
+    preencherHtmlPokemon(pokemonDesafiante, 'desafiante'); // Assumindo que você usa 'desafiante' como prefixo/classe
+
+
+    // 3. Adiciona a lógica de ataque (Exemplo de como o Player ataca)
+    document.querySelectorAll('.skill').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const indicePoder = parseInt(event.target.dataset.index);
+
+            // Player ataca o Desafiante
+            pokemonPlayer.atacar(indicePoder, pokemonDesafiante, tiposVantagens);
+
+            // Lógica de turno (Desafiante ataca de volta)
+            if (pokemonDesafiante.estaVivo()) {
+                // Desafiante escolhe um poder aleatório (índice 0 a 3)
+                const indicePoderDesafiante = Math.floor(Math.random() * pokemonDesafiante.poderes.length);
+                pokemonDesafiante.atacar(indicePoderDesafiante, pokemonPlayer, tiposVantagens);
+            }
+
+            // Atualizar as barras de vida no HTML após o ataque
+            // É crucial que estas barras usem o ID ou classe correta.
+            document.querySelector('#player .corVida').style.width = `${pokemonPlayer.hp}%`;
+            document.querySelector('#desafiante .corVida').style.width = `${pokemonDesafiante.hp}%`;
+
+            // Lógica de vitória/derrota (Opcional)
+            if (!pokemonPlayer.estaVivo()) {
+                alert(`${pokemonPlayer.nome} foi derrotado! Você perdeu!`);
+            } else if (!pokemonDesafiante.estaVivo()) {
+                alert(`${pokemonDesafiante.nome} foi derrotado! Você venceu!`);
+            }
+        });
+    });
+}
+
+// Inicia o jogo
+iniciarBatalha();

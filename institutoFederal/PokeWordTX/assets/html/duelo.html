@@ -11,29 +11,45 @@
 <body>
     <main class="fundoDuelo">
         <div class="areadeDuelo">
-            <div id="nomePlayer" class="tamanhoAreaDuelo">
+            <div id="nomePlayer player" class="tamanhoAreaDuelo player">
                 <div class="vida">
                     <div class="corVida" style="width: 10%"></div>
                 </div>
                 <strong class="nomedoPokemon">--</strong>
+                <div id="pokemon-types">Tipos:</div>
                 <div class="imagemPokemonDesafianteimg">
                     <img class="imagemPokemonDesafiante" src="" alt="">
                 </div>
-                <div id="pokemon-types">Tipos:</div>
-                <div id="pokemon-moves">Poderes:</div>
+                <div id="pokemon-moves areaPoderes">
+                    <div class="hud">
+                        <div class="status">
+                            <div class="life-orb">
+                                <span class="value">2518</span>
+                            </div>
+                        </div>
 
-                <div class="botaoAtaquePlayer">
-                    <button class="botaodeAtaque">Atacar</button>
+                        <div class="skills">
+                            <button class="skill"><!--<img src="icones/agua.png" alt="Habilidade 1">--></button>
+                            <button class="skill"><!--<img src="icones/fogo.png" alt="Habilidade 2">--></button>
+                            <button class="skill"><!--<img src="icones/voar.png" alt="Habilidade 3">--></button>
+                            <button class="skill"><!--<img src="icones/defesa.png" alt="Habilidade 4">--></button>
+                            <button class="skill"><!--<img src="icones/super.png" alt="Habilidade 5">--></button>
+                        </div>
+
+                        <div class="mana-orb">
+                            <span class="value">64</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div id="nomedesafiante " class="tamanhoAreaDuelo2">
+            <div id="nomedesafiante  desafiante" class="tamanhoAreaDuelo2 desafiante">
                 <div class="vida">
                     <div class="corVida" style="width: 10%"></div>
                 </div>
-
-                <div>
-                    <button class="botaodeAtaque">Atacar</button>
+                <strong class="nomedoPokemonDesafiante">--</strong>
+                <div class="imagemPokemonDesafianteimg">
+                    <img class="imagemPokemonDesafiante2" src="" alt="">
                 </div>
             </div>
         </div>
@@ -41,6 +57,8 @@
     </main>
 
     <script src="../js/areaDuelo.js"></script>
+    <script src="../js/ataquesIaDuelo.js"></script>
+    <script src="../js/informacoesPokemon.js"></script>
 </body>
 
 </html>
