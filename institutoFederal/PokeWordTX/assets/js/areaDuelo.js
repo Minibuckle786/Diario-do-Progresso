@@ -3,7 +3,7 @@ class Pokemon {
     constructor(nome, foto, hp, tipos, poderes) {
         this.nome = nome;
         this.foto = foto;
-        this.hp = hp;
+        this.hp = 100;
         this.tipos = tipos; // Ex: ["fogo"]
         this.poderes = poderes; // Ex: [{ nome: "Chama", poder: 50 }]
     }
@@ -109,38 +109,13 @@ async function obterPokemon() {
                 poder: Math.floor(Math.random() * 40) + 30, // poder aleatório entre 30 e 70
             }));
 
+        return new Pokemon(nome, foto, hp, tipos, poderes);
 
-        /*
-                // Preenchendo os dados no HTML Player
-                // const teste = document.getElementsByClassName('imagemPokemonDesafiante');
-                document.getElementsByClassName('nomedoPokemon')[0].textContent = nome; // Enviando o nome para o html
-                document.getElementsByClassName('imagemPokemonDesafiante')[0].src = foto; // Enviando a foto para o html
-                document.getElementsByClassName('imagemPokemonDesafiante')[0].alt = nome; // // Enviando o nome da foto para o html
-                document.querySelector('#nomePlayer .corVida').style.width = `${hp}%`;
-                let hpEl = document.getElementById('pokemon-types').textContent = `Tipos: ${tipos.join(', ')}`;
-        
-                // Preenchendo os dados no HTML Desafiante
-                document.getElementsByClassName('nomedoPokemonDesafiante')[0].textContent = nome; // Enviando o nome para o html
-                document.getElementsByClassName('imagemPokemonDesafiante2')[0].src = foto; // Enviando a foto para o html
-                document.getElementsByClassName('imagemPokemonDesafiante2')[0].alt = nome; // // Enviando o nome da foto para o html
-                document.querySelector('#nomedesafiante .vida .corVida').style.width = `${hp}%`;
-        
-        
-                //document.getElementById('pokemon-moves').textContent = `Poderes: ${poderes.map(p => p.nome).join(', ')}`;
-        
-                console.log(hpEl);
-
-                */
-
-        const pokemon = new Pokemon(nome, foto, hp, tipos, poderes);
-        return pokemon;
     } catch (error) {
         console.log('Erro ao buscar Pokémon:', error);
     }
 }
 obterPokemon();
-
-
 
 // Botoes poderes
 document.querySelectorAll('.skill').forEach(skill => {
@@ -149,32 +124,22 @@ document.querySelectorAll('.skill').forEach(skill => {
         setTimeout(() => skill.classList.remove('active'), 3000);
     });
 });
-(async () => {
-    // Busca dois pokémons aleatórios
-    const pokemon1 = await obterPokemon(6);  // Charizard
-    const pokemon2 = await obterPokemon(3);  // Venusaur
-
-    console.log(pokemon1);
-    console.log(pokemon2);
-
-    // pokemon1.atacar(0, pokemon2, tiposVantagens);
-})();
 
 // Estudar daqui para baixo
 
 // Função auxiliar para preencher os dados de UM Pokémon no HTML
+
 function preencherHtmlPokemon(pokemon, prefixo) {
     // 1. Preenche o NOME e o HP
-    document.querySelector(`.${prefixo} .nomedoPokemon`).textContent = pokemon.nome;
+    document.querySelector(`#${prefixo} .nomedoPokemon`).textContent = pokemon.nome;
     document.querySelector(`#${prefixo} .corVida`).style.width = `${pokemon.hp}%`;
-    document.querySelector(`#${prefixo} .hpTotal`).textContent = pokemon.hp; // Se você tiver um elemento para mostrar o HP total
 
     // 2. Preenche a IMAGEM
-    document.querySelector(`.${prefixo} .imagemPokemon`)[0].src = pokemon.foto;
-    document.querySelector(`.${prefixo} .imagemPokemon`)[0].alt = pokemon.nome;
+    document.querySelector(`#${prefixo} .imagemPokemon`).src = pokemon.foto;
+    document.querySelector(`#${prefixo} .imagemPokemon`).alt = pokemon.nome;
 
-    // 3. Preenche os TIPOS (usando o array de tradução que salvamos)
-    document.querySelector(`#${prefixo} .pokemon-types`).textContent = `Tipos: ${pokemon.tiposParaExibicao.join(', ')}`;
+    // 3. Preenche os TIPOS
+    document.querySelector(`#${prefixo} .pokemon-types`).textContent = `Tipos: ${pokemon.tipos.join(', ')}`;
 
     // 4. Preenche os BOTÕES DE PODER (Apenas para o Player)
     if (prefixo === 'player') {
@@ -185,7 +150,7 @@ function preencherHtmlPokemon(pokemon, prefixo) {
             const button = document.createElement('button');
             button.classList.add('skill');
             button.textContent = poder.nome;
-            button.dataset.index = index; // Salva o índice do poder para usar no ataque
+            button.dataset.index = index;
             skillsContainer.appendChild(button);
         });
 
