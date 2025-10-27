@@ -6,6 +6,7 @@
     max-width: 1080px;
 }
 
+
 .slide {
     min-width: 25%;
     /* Exibe 4 imagens */
@@ -68,4 +69,58 @@
 .carrosselLayoutPokemons p {
     margin: 1rem 0 0 2rem;
     font-size: 1.4rem;
+}
+
+// Teste carrosel
+
+.carrossel2 {
+    display: flex;
+    width: 80%;
+}
+
+.carrossel2Area div {
+    flex: 1;
+}
+
+.carrossel2Area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrossel2Area img {
+    width: 400px;
+}
+
+/* Estilo dos botões */
+
+.carrossel2 {
+    position: relative;
+    margin: auto;
+}
+
+.carrossel2 button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+    border-radius: 50%;
+}
+
+.carrossel2 button.prev {
+    left: 10px;
+}
+
+.carrossel2 button.next {
+    right: 10px;
+}
+
+.carrossel2 button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }

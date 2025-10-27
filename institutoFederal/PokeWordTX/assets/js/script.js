@@ -65,7 +65,7 @@ async function carregarPokemons(qtd = 1010) {
     const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     const dados = await resposta.json();
 
-    console.log(dados); // Para ver no console
+    //console.log(dados); // Para ver no console
 
     const card = document.createElement('div');
     card.classList.add('mainPokemonCards');
@@ -77,8 +77,34 @@ async function carregarPokemons(qtd = 1010) {
                     <p>Tipo: ${dados.types.map(tipo => tipo.type.name).join(', ')}</p>
                 `;
 
-    container.appendChild(card);
+    //container.appendChild(card);
   }
 }
 
 carregarPokemons();
+
+async function carrosel2(qtd = 3) {
+  const carrosel = document.querySelector('.carrossel2Area');
+  const imagens = document.querySelectorAll('.carrossel img');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  console.log(carrosel);
+
+
+  for (let i = 1; i <= qtd; i++) {
+    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    const dados = await resposta.json();
+
+    console.log(dados); // Para ver no console
+
+    const card = document.createElement('div');
+    card.classList.add('carrossel2Area');
+
+    card.innerHTML = `
+                    <img src="${dados.sprites.front_default}" alt="${dados.name}">
+                `;
+
+    carrosel.appendChild(card);
+  }
+}
+carrosel2();
