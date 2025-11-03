@@ -1,33 +1,5 @@
 /*
 
-
-// Variáveis de controle do carrossel
-let index = 0;  // Índice do slide atual
-const slides = document.querySelectorAll('.slide');  // Todos os slides
-const totalSlides = slides.length;  // Total de slides
-const carrossel = document.querySelector('.carrossel');  // Contêiner dos slides
-
-// Função para mostrar o slide correto
-function showSlide() {
-  // Atualiza a posição do carrossel com a transformação
-  carrossel.style.transform = `translateX(-${index * 100}%)`;
-}
-
-// Função para avançar o slide
-document.querySelector('.next').addEventListener('click', () => {
-  index = (index + 1) % totalSlides;  // Avança para o próximo slide, e volta para o primeiro se atingir o final
-  showSlide();
-});
-
-// Função para voltar ao slide anterior
-document.querySelector('.prev').addEventListener('click', () => {
-  index = (index - 1 + totalSlides) % totalSlides;  // Volta para o slide anterior, e volta ao último se chegar ao início
-  showSlide();
-});
-
-// Exibe o primeiro slide ao carregar
-showSlide();
-
 // Consertando a data no cadastro para não deixar aparecer 5 numero defeito do crome
 
 document.getElementById('dataNascimento').addEventListener('change', function () {
@@ -41,31 +13,17 @@ document.getElementById('dataNascimento').addEventListener('change', function ()
 });
 
 
+
 // Pokedex
 
-/* Dados testes 
-
-async function carregarPokemons(qtd = 20) {
-  for (let i = 1; i <= qtd; i++) {
-    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
-    const dados = await resposta.json();
-
-    console.log(dados);
-  }
-}
-undefined
-carregarPokemons(); 
-
-*/
-
-async function carregarPokemons(qtd = 1010) {
+async function carregarPokemons(qtd = 5) {
   const container = document.getElementById('pokemonContainer');
 
   for (let i = 1; i <= qtd; i++) {
     const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     const dados = await resposta.json();
 
-    //console.log(dados); // Para ver no console
+    console.log(dados); // Para ver no console
 
     const card = document.createElement('div');
     card.classList.add('mainPokemonCards');
@@ -77,34 +35,56 @@ async function carregarPokemons(qtd = 1010) {
                     <p>Tipo: ${dados.types.map(tipo => tipo.type.name).join(', ')}</p>
                 `;
 
-    //container.appendChild(card);
+    container.appendChild(card);
   }
 }
 
 carregarPokemons();
+*/
 
-async function carrosel2(qtd = 3) {
-  const carrosel = document.querySelector('.carrossel2Area');
-  const imagens = document.querySelectorAll('.carrossel img');
+async function carrosel2(qtd = 9, visiveis = 3) {
+  const carrosel = document.querySelector('.carrossel2');
   const prev = document.querySelector('.prev');
   const next = document.querySelector('.next');
-  console.log(carrosel);
 
+  let indiceAtual = 0;
+  let imagens = [];
 
+  // Carregar todas as imagens
   for (let i = 1; i <= qtd; i++) {
-    const resposta = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
-    const dados = await resposta.json();
-
-    console.log(dados); // Para ver no console
-
-    const card = document.createElement('div');
-    card.classList.add('carrossel2Area');
-
-    card.innerHTML = `
-                    <img src="${dados.sprites.front_default}" alt="${dados.name}">
-                `;
-
-    carrosel.appendChild(card);
+    const imgURL = `https://raw.githubusercontent.com/wellrccity/pokedex-html-js/master/assets/img/pokemons/poke_${i}.gif`;
+    imagens.push(imgURL);
   }
+
+  // Função para mostrar 3 imagens de cada vez
+  function mostrarImagens() {
+    carrosel.innerHTML = ''; // limpa antes de mostrar
+
+    for (let i = indiceAtual; i < indiceAtual + visiveis; i++) {
+      const idx = i % imagens.length; // faz o carrossel circular
+      const card = document.createElement('div');
+      card.classList.add('carrossel2Area');
+
+      card.innerHTML = `<img src="${imagens[idx]}" alt="Pokemon ${idx + 1}">`;
+
+      carrosel.appendChild(card);
+    }
+  }
+
+  // Botão NEXT → pula 3
+  next.addEventListener('click', () => {
+    indiceAtual = (indiceAtual + visiveis) % imagens.length;
+    mostrarImagens();
+  });
+
+  // Botão PREV → volta 3
+  prev.addEventListener('click', () => {
+    indiceAtual = (indiceAtual - visiveis + imagens.length) % imagens.length;
+    mostrarImagens();
+  });
+
+  // Mostrar as primeiras 3 imagens
+  mostrarImagens();
 }
-carrosel2();
+
+carrosel2(); // chama a função
